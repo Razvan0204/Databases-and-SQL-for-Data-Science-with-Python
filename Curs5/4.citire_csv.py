@@ -1,0 +1,34 @@
+
+import csv
+import os
+
+os.chdir(os.path.dirname(__file__))
+
+with open("1.Profesori_original.csv", "r") as freader:
+    csv_reader = csv.DictReader(freader)
+    print(csv_reader)
+    for row in csv_reader:
+        print(row)
+
+new_human_dict = {
+    'idprofesor': '6', 
+    'nume': 'Gheorghescu', 
+    'prenume': 'Gica', 
+    'adresa_idadresa': '1', 
+    'data_nasterii': '1964-02-01', 
+    'grad': 'I'
+ } 
+
+with open("3.Profesori.csv", "a") as fwriter:
+    fieldnames = ["idprofesor", "nume", "prenume", "adresa_idadresa", "data_nasterii", "grad"]
+    csv_writer = csv.DictWriter(fwriter, fieldnames)
+    csv_writer.writerow(new_human_dict)
+
+
+
+
+
+
+
+
+
